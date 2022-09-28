@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 function ProjectDetail({ userName }) {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [project, setProject] = useState([]);
     const {projectName} = useParams();
+    console.log(projectName);
     useEffect(() => {
         async function fetchProjectData() {
             const data = await fetch(`https://api/github.com/repos/${userName}/${projectName}`);
