@@ -7,11 +7,12 @@ function ProjectDetail({ userName }) {
     console.log(projectName);
     useEffect(() => {
         async function fetchProjectData() {
-            const data = await fetch(`https://api/github.com/repos/${userName}/${projectName}`);
+            const data = await fetch(`https://api.github.com/repos/${userName}/${projectName}`);
             const result = await data.json();
             if (result) {
                 setProject(result);
                 setLoading(false);
+                console.log(result);
             }
         }
         if (userName && projectName) {
